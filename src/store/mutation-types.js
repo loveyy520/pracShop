@@ -1,0 +1,8 @@
+export const ADD_COUNTER = 'addCount'
+export const ADD_NEW = 'addNew'
+export const CHECKED_COUNT_PLUS = 'checkedCountPlus'
+export const CHECKED_COUNT_MINUS = 'checkedCountMinus'
+export const CHECK_ALL = 'checkAll'
+export const CANCEL_ALL = 'cancelAll'
+export const CHECK_OFF = 'checkOff'
+export const CHECK_ON='checkOn'
