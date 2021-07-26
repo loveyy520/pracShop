@@ -10,7 +10,6 @@
       ref="tabControl0"
       class="tabTop"
     />
-    <!-- <homeswiper :banner="banner.list" /> -->
     <scroll
       class="content"
       ref="scroll"
@@ -21,6 +20,7 @@
     >
       <div slot="scroll">
         <div>
+          <swiper :imgs="banner" />
           <recommendview :recommends="recommend.list" />
           <feature />
           <tabcontrol
@@ -40,7 +40,8 @@
 <script>
 import { debounce } from "@/common/utils";
 
-import homeswiper from "./childComps/HomeSwiper";
+// import homeswiper from "./childComps/HomeSwiper";
+import swiper from "@/components/common/swiper/swiper";
 import recommendview from "./childComps/RecommendView";
 import feature from "./childComps/FeatureViw.vue";
 import goodslist from "@/components/content/goods/goodslist";
@@ -55,7 +56,8 @@ export default {
   name: "home",
   components: {
     navbar,
-    homeswiper,
+    // homeswiper,
+    swiper,
     scroll,
     recommendview,
     feature,
@@ -96,7 +98,8 @@ export default {
   },
   created() {
     getHomeMultidata().then((res) => {
-      this.banner = res.data.data.banner;
+      res.data.data.banner.list.forEach((img) => this.banner.push(img.image));
+      console.log(this.banner);
       this.recommend = res.data.data.recommend;
     });
 
@@ -149,9 +152,9 @@ export default {
       this.$refs.tabControl0.currentIndex = index;
 
       const y = this.isTabFixed
-        ? -this.loacatonOfTabs[index] >= 385
+        ? -this.loacatonOfTabs[index] >= 732
           ? this.loacatonOfTabs[index]
-          : -385
+          : -732
         : lastLocation;
       this.$refs.scroll.scrollTo(0, y, 0);
       this.$refs.scroll.refresh();
@@ -161,7 +164,7 @@ export default {
     },
     isShowBackTop(position) {
       this.backTopShow = -position.y > 1000 ? true : false;
-      this.isTabFixed = -position.y >= 385 ? true : false;
+      this.isTabFixed = -position.y >= 732 ? true : false;
     },
   },
   computed: {

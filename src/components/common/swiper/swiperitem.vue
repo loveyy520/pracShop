@@ -16,6 +16,7 @@ export default {
   float: left;
   width: 100%;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .swiperitem img {

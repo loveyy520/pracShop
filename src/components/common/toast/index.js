@@ -14,7 +14,6 @@ export default {
         // 3.将组件对象手动挂载到某个元素上(此处为挂载到自己创建的div,div将替换组件的template)
         toast.$mount(document.createElement('div'));
         // 4.挂载完后,toast.$el对应的就是此div,将其添加到dom中
-        console.log(toast.$el);
         document.body.appendChild(toast.$el)
         // 5.把创建的组建对象添加到Vue原型
         Vue.prototype.$toast = toast;

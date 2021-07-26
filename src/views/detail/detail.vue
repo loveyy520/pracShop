@@ -13,7 +13,7 @@
     >
       <div slot="scroll" class="content">
         <div>
-          <detailSwiper :top-imgs="topImgs" class="swiper"></detailSwiper>
+          <swiper :imgs="topImgs" class="swiper"></swiper>
           <detail-base-info :goods="goods"></detail-base-info>
           <detail-shop :shop="shop"></detail-shop>
           <detailInfo
@@ -50,7 +50,8 @@ import { mapActions } from "vuex";
 
 import detailNav from "./childComps/detailNavBar";
 import scroll from "@/components/common/scroll/scroll";
-import detailSwiper from "./childComps/detailSwiper";
+// import detailSwiper from "./childComps/detailSwiper";
+import swiper from "@/components/common/swiper/swiper";
 import DetailBaseInfo from "./childComps/detailBaseInfo";
 import detailShop from "./childComps/detailShop";
 import detailInfo from "./childComps/detailInfo";
@@ -65,7 +66,8 @@ export default {
   components: {
     detailNav,
     scroll,
-    detailSwiper,
+    // detailSwiper,
+    swiper,
     DetailBaseInfo,
     detailShop,
     detailInfo,
@@ -94,7 +96,6 @@ export default {
   methods: {
     ...mapActions(["addCart"]),
     imgLoad() {
-      // console.log("xixixi");
       // this.$refs.detailscroll.refresh();
       this.unitPosition = [];
       if (

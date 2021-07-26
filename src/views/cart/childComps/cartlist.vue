@@ -40,6 +40,10 @@ export default {
   bottom: 58px;
 }
 
+.cartList ul {
+  padding: 0;
+}
+
 .wrapper {
   height: calc(100vh - 100px);
   overflow: hidden;
